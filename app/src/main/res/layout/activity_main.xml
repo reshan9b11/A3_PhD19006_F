@@ -81,5 +81,14 @@
 
 
     </LinearLayout>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="25dp"
+        android:text="Go to GPS Tracking"
+        android:onClick="fun">
+
+    </Button>
 
 </LinearLayout>

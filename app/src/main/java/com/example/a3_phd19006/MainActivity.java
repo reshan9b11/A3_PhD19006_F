@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,16 +64,27 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, BackgroundMicrophone.class);
         //Log.e(LOG_TAG, "in onPressStartService, userFilePath is "+userFilepath);
         startService(intent);
+        Toast.makeText(getApplicationContext(),"Service Started",Toast.LENGTH_SHORT).show();
         Log.e(LOG_TAG, "Started service ");
 
     }
 
     public void onPressStopService(View v){
+        Toast.makeText(getApplicationContext(),"Service Stop",Toast.LENGTH_SHORT).show();
         stopService(new Intent(getApplicationContext(), BackgroundAccelerometerService.class));
     }
 
 
     public void onStopRecord(View v){
+        Toast.makeText(getApplicationContext(),"Service Stop",Toast.LENGTH_SHORT).show();
         stopService(new Intent(getApplicationContext(), BackgroundMicrophone.class));
+    }
+
+
+
+    public void fun(View v){
+        Intent x=new Intent(this,GetGPS.class);
+        startActivity(x);
+
     }
 }
