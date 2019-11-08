@@ -34,7 +34,7 @@ public class BackgroundAccelerometerService extends Service implements SensorEve
     private int period = 5;
     //private DBHelper mydb;
     DBHelper dh;
-    SQLiteDatabase mydb;
+    //SQLiteDatabase mydb;
     private TextView acc;
 
     public BackgroundAccelerometerService() {
@@ -60,7 +60,7 @@ public class BackgroundAccelerometerService extends Service implements SensorEve
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         dh = new DBHelper(this.getApplication());
-        mydb = dh.getWritableDatabase();
+      //  mydb = dh.getWritableDatabase();
         return START_STICKY;
 
         //acc=(TextView)findViewById(R.id.acc_show);

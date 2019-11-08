@@ -16,9 +16,9 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "MyDBName.db";
     public static final String ACCE_TABLE_NAME = "acce";
     //public static final String CONTACTS_COLUMN_ID = "id";
-    public static final String CONTACTS_COLUMN_X = "x";
-    public static final String CONTACTS_COLUMN_Y = "y";
-    public static final String CONTACTS_COLUMN_Z = "z";
+    public static final String X = "x";
+    public static final String Y = "y";
+    public static final String Z = "z";
 
     private HashMap hp;
 
@@ -32,29 +32,34 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         // TODO Auto-generated method stub
         db.execSQL(
-                "create table acce " +
-                        "(id integer primary key, x text,y text,z text)"
+                "CREATE TABLE "+ ACCE_TABLE_NAME +
+                        " (" + X + " text, " + Y + " text, " + Z + " text)"
         );
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // TODO Auto-generated method stub
-        db.execSQL("DROP TABLE IF EXISTS acce");
+        db.execSQL("DROP TABLE IF EXISTS "+ACCE_TABLE_NAME);
         onCreate(db);
     }
 
     public boolean insertacce (String x, String y, String z) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("x", x);
-        contentValues.put("y", y);
-        contentValues.put("z", z);
+        contentValues.put(X, x);
+        contentValues.put(Y, y);
+        contentValues.put(Z, z);
 //        contentValues.put("street", street);
 //        contentValues.put("place", place);
-        db.insert("acce", null, contentValues);
-        Log.d("shk","inserted");
-        return true;
+       long flag= db.insert(ACCE_TABLE_NAME, null, contentValues);
+        if(flag==-1){
+            return false;
+        }
+        else {
+            Log.d("shk","inserted");
+            return true;
+        }
     }
 
     public Cursor getData(int id) {
@@ -72,10 +77,10 @@ public class DBHelper extends SQLiteOpenHelper {
     public boolean updateContact (Integer id, String x, String y, String z) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put("x", x);
-        contentValues.put("y", y);
-        contentValues.put("z", z);
-        db.update("acce", contentValues, "id = ? ", new String[] { Integer.toString(id) } );
+        contentValues.put(X, x);
+        contentValues.put(Y, y);
+        contentValues.put(Z, z);
+        db.update(ACCE_TABLE_NAME, contentValues, "id = ? ", new String[] { Integer.toString(id) } );
         return true;
     }
 
