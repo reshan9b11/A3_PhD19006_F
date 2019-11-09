@@ -38,12 +38,6 @@
         android:onClick="onPressStopService" />
 
     </LinearLayout>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/acc_show"
-            android:textColor="#000"
-            ></TextView>
 
 
     </LinearLayout>
@@ -85,10 +79,38 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"
-        android:paddingLeft="25dp"
+        android:paddingLeft="15dp"
         android:text="Go to GPS Tracking"
-        android:onClick="fun">
+        android:onClick="fun"
+        android:layout_marginLeft="20dp"
+        >
+
 
     </Button>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Scan WIFI ACCESS POINT"
+            android:layout_gravity="center"
+            android:background="@color/colorPrimaryDark"
+            android:textColor="#FFF"
+            android:id="@+id/wifi_scan"
+            >
+
+        </Button>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="15dp"
+
+        android:id="@+id/wifi_list"/>
+
+    </LinearLayout>
 
 </LinearLayout>
