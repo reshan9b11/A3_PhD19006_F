@@ -10,6 +10,7 @@ import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.wifi.ScanResult;
+import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -151,9 +152,18 @@ public class MainActivity extends AppCompatActivity {
             result = wifiManager.getScanResults();
             unregisterReceiver(this);
             Log.d("k","Broadcasr");
+            int max=5;
+            WifiInfo wifiInfo=wifiManager.getConnectionInfo();
+           // int rssi=WifiManager.calculateSignalLevel(wifiInfo.getRssi(),max);
 
             for (ScanResult scanResult : result) {
-                arrayList.add(scanResult.SSID + " - " + scanResult.capabilities);
+//                int r=WifiManager.calculateSignalLevel(wifiInfo.getRssi(),max);
+//                int cc=wifiInfo.getLinkSpeed();
+//                int ccc=wifiInfo.getRssi();
+//               // float c=scanResult.level;
+//                r=(r*100)/max;
+
+                arrayList.add(scanResult.SSID +"  Strength in dBm= "+scanResult.level);
                 Log.d("kx",scanResult.SSID);
 
                 adapter.notifyDataSetChanged();
