@@ -50,8 +50,6 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(X, x);
         contentValues.put(Y, y);
         contentValues.put(Z, z);
-//        contentValues.put("street", street);
-//        contentValues.put("place", place);
        long flag= db.insert(ACCE_TABLE_NAME, null, contentValues);
         if(flag==-1){
             return false;
@@ -91,19 +89,5 @@ public class DBHelper extends SQLiteOpenHelper {
                 new String[] { Integer.toString(id) });
     }
 
-//    public ArrayList<String> getAllCotacts() {
-//        ArrayList<String> array_list = new ArrayList<String>();
-//
-//        //hp = new HashMap();
-//        SQLiteDatabase db = this.getReadableDatabase();
-//        Cursor res =  db.rawQuery( "select * from contacts", null );
-//        res.moveToFirst();
-//
-//        while(res.isAfterLast() == false){
-//            array_list.add(res.getString(res.getColumnIndex(CONTACTS_COLUMN_NAME)));
-//            res.moveToNext();
-//        }
-//        return array_list;
-//    }
 
 }

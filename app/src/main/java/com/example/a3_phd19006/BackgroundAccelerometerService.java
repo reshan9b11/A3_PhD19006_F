@@ -28,6 +28,9 @@ public class BackgroundAccelerometerService extends Service implements SensorEve
     private String filepath;
     private FileWriter writer;
     private FileOutputStream output;
+    TextView xvalue;
+    TextView yvalue;
+    TextView zvalue;
     // epoch time since last file write
     private long lastTime = 0;
     // minimum time in seconds to write to file after previous write
@@ -56,10 +59,12 @@ public class BackgroundAccelerometerService extends Service implements SensorEve
         Toast.makeText(this, "Service Started", Toast.LENGTH_LONG).show();
         Log.d("Service Started","Service Started");
         mInitialized = false;
+       // setT(xvalue,yvalue,zvalue);
         mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
         mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
         dh = new DBHelper(this.getApplication());
+
       //  mydb = dh.getWritableDatabase();
         return START_STICKY;
 
@@ -69,17 +74,12 @@ public class BackgroundAccelerometerService extends Service implements SensorEve
     @Override
     public void onDestroy() {
         super.onDestroy();
-//        Toast.makeText(this, "Service Destroyed", Toast.LENGTH_LONG).show();
-//        Log.d("Service Destroyed", "Service Destroyed");
-//        try {
-//            writer.close();
-//            output.getFD().sync();
-//            output.close();
-//        } catch (Exception e){
-//            e.printStackTrace();
-//        }
+//
         mSensorManager.unregisterListener(this);
     }
+
+
+
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -95,6 +95,7 @@ public class BackgroundAccelerometerService extends Service implements SensorEve
         float z = event.values[2];
         if (!mInitialized) mInitialized = true;
         Log.d("cooridate",x+" "+y+" "+z);
+//
         dh.insertacce(Float.toString(x), Float.toString(y), Float.toString(z));
 
         long tsLong = System.currentTimeMillis()/2000;
@@ -104,17 +105,5 @@ public class BackgroundAccelerometerService extends Service implements SensorEve
         }
     }
 
-
-//    public void recordAccelData(float x, float y, float z, Long tsLong){
-//        String ts = tsLong.toString();
-//        String accelLine = ts+", "+Float.toString(x)+", "+Float.toString(y)+", "+Float.toString(z)+"\n";
-//        try {
-//            writer.write(accelLine);
-//            writer.flush();
-//            Log.e(LOG_TAG, "writing to file " + accelLine);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            Log.e(LOG_TAG, "exception when writing file in recordAccelData");
-//        }
-//    }
+//
 }
