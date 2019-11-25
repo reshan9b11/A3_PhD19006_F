@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9999ff">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="#660033"
+            android:text="X Value-"
+
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="#660033"
+        android:id="@+id/xval"
+
+        android:textColor="#fff"
+        android:textStyle="bold"
+        android:padding="15dp"/>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="#000066"
+            android:text="Y Value-"
+
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="#000066"
+        android:id="@+id/yval"
+
+        android:textColor="#fff"
+        android:padding="15dp"
+        android:textStyle="bold"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:background="#003300"
+            android:text="X Value-"
+
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_marginRight="10dp"
+            android:padding="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:background="#003300"
+        android:id="@+id/zval"
+
+        android:textColor="#fff"
+        android:padding="15dp"
+        android:textStyle="bold"/>
+    </LinearLayout>
+    <ListView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/accel_list"/>
+
+</LinearLayout>
